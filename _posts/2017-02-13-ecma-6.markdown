@@ -1,0 +1,61 @@
+---
+layout: post
+title:  "ECMAScript 6 e incompatibilidades"
+date:   2017-02-13
+---
+
+O ECMAScript 6 é a ultima versão do padrão ECMAScript, este padrão serve de base para a implementação do JavaScript. O ES6 adiciona algumas features interessantes ao JavaScript, como: Definição de Classe, Argumentos padrões em funções, Constantes, etc. (Você pode encontrar algumas dessas features nesse [link](http://es6-features.org)).
+
+Apesar de ter sido finalizado em 2015, [alguns browsers ainda apresentam incompatibilidade](https://kangax.github.io/compat-table/es6/) com o novo padrão, e é justamente sobre como diminuir estes problemas que pretendo falar nesse post.
+
+Atualmente, existe um tipo de compilador chamado transpilador(transpiler), que basicamente pega um código-fonte de em uma linguagem de programação e traduz para outra. Seguindo este conceito surgiram algumas libs que traduzem o código JavaScript no padrão ES6 para o ES5, diminuindo problemas de incompatibilidade e permitindo que você possa utilizar os principais recursos do novo padrão. As libs que testei foram a [Traceur Compiler](https://github.com/google/traceur-compiler), da google, e a [Babel](https://babeljs.io/).
+
+#### Traceur Compiler
+
+Você pode utilizar o Traceur Compiler de 2 formas:
+
+- Incluindo a lib direto na página e o código será automaticamente transpilado para o ES5 ao carregar a página. Para utilizar dessa forma basta incluir os arquivos assim:
+
+```html
+<script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+<script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>
+<script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+```
+   O arquivo traceur.js é o compilador (transpilador), o BrowserSystem.js e bootstrap.js são responsáveis por aplicar o compilador ao JavaScript da página.
+   
+- Compilando o código em ES6 utilizando o [Node](http://nodejs.org/):
+   * Após clonar o repositório execute o comando  para compilar o seu arquivo JS:
+      
+    `./traceur --out out/meu_arquivo.js --script meu_arquivo.js`
+    
+A pasta out é onde ficará o arquivo transpilado de ES6 para ES5.
+
+Um código como:
+
+```javascript
+const a = "1";
+
+function foo(bar=true){
+	console.log(bar);
+}
+```
+
+Ficaria assim compilado:
+
+```javascript
+$traceurRuntime.ModuleStore.getAnonymousModule(function() {
+  "use strict";
+  var a = "1";
+  function foo() {
+    var bar = arguments[0] !== (void 0) ? arguments[0] : true;
+    console.log(bar);
+  }
+  return {};
+});
+```
+Você também pode testar em tempo real a compilação do código neste [link](http://google.github.io/traceur-compiler/demo/repl.html).
+
+
+#### Babel JS
+
+*Continua...*
