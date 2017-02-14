@@ -2,6 +2,7 @@
 layout: post
 title:  "ECMAScript 6 e incompatibilidades"
 date:   2017-02-13
+comments: true
 ---
 
 O ECMAScript 6 é a ultima versão do padrão ECMAScript, este padrão serve de base para a implementação do JavaScript. O ES6 adiciona algumas features interessantes ao JavaScript, como: Definição de Classe, Argumentos padrões em funções, Constantes, etc. (Você pode encontrar algumas dessas features nesse [link](http://es6-features.org)).
