@@ -59,4 +59,50 @@ Você também pode testar em tempo real a compilação do código neste [link](h
 
 #### Babel JS
 
-*Continua...*
+O Babel também é muito fácil de usar e possui várias empresas famosas que o utilizam, alguma destas são: Facebook, Netflix, Yahoo, Paypal, Spotify e [várias outras](https://babeljs.io/users/).
+
+Para instalar o Babel, você irá precisar ter o Node.js e npm instalado. A instalação do Babel pode ser feita com essa comando:
+
+`npm install -g babel`
+
+Agora você pode executar o Babel assim:
+
+`babel script.js --out-file script-compiled.js`
+
+Sendo que o script.js é o arquivo com o padrão ES6 e o script-compiled.js será o arquivo transpilado para o ES5.
+
+Uma vantagem do Babel é a legibilidade do código gerado. Por exemplo:
+
+- Script original
+
+```javascript
+class Poligono {
+  constructor(altura, largura) {
+    this.altura = altura;
+    this.largura = largura;
+  }
+}
+```
+
+- Script compilado
+
+```javascript
+"use strict";
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Poligono = function Poligono(altura, largura) {
+  _classCallCheck(this, Poligono);
+
+  this.altura = altura;
+  this.largura = largura;
+};
+```
+
+Tente você mesmo através do transpilador online neste [link](http://babeljs.io/repl/)
+
+### Conclusão
+
+Não é necessário esperar que todos os browsers sejam compatíveis com o ES6 para começar a desenvolver neste padrão, os transpiladores estão aí para nos ajudar.
+
+Se você conhece outra ferramenta ou lib do tipo, compartilhe nos comentários abaixo.
