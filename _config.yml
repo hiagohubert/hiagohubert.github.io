@@ -1,5 +1,5 @@
 title: Hiago Hubert Blog
-description: Long Form Jekyll theme built with SASS / COMPASS / SUSY
+description: Blog de desenvolvimento de software e segurança da informação
 
 url: https://hiagohubert.github.io/
 baseurl: ""
@@ -23,4 +23,4 @@ social:
    facebook: hiago.hubert
    email: hiagohubert@protonmail.com
 
-google_analytics: "UA-58263416-1"
+google_analytics: "UA-92163450-1"
