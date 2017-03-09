@@ -1,13 +1,13 @@
 ---
 layout: default
 title: Hiago Hubert Blog
-lang: pt
+lang: en
 ref: home
 ---
 
 <div class="home" id="home">
 
-  <h1 class="pageTitle">Posts Recentes</h1>
+  <h1 class="pageTitle">Recent posts</h1>
   <ul class="posts noList">
   {% assign posts=paginator.posts | where:"lang", page.lang %}
     {% for post in posts %}

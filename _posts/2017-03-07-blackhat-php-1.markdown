@@ -2,6 +2,8 @@
 layout: post
 title:  "Black Hat PHP"
 date:   2017-03-07
+lang: pt
+ref: blackhat-php-1
 comments: true
 ---
 

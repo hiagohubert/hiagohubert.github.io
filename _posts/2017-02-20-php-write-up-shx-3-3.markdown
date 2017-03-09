@@ -2,6 +2,8 @@
 layout: post
 title:  "Write up SHX 3 (PHP Security) - Hello Photo"
 date:   2017-02-20
+lang: pt
+ref: php-write-up-shx-3-3
 comments: true
 ---
 
