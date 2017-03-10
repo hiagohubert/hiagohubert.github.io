@@ -1,39 +1,39 @@
 ---
 layout: post
-title:  "ECMAScript 6 e incompatibilidades"
+title:  "ECMAScript 6 and incompatibilities"
 date:   2017-02-13
 lang: en
 ref: ecmascript6
 comments: true
 ---
 
-O ECMAScript 6 é a last versão do padrão ECMAScript, este padrão serve de base para a implementação do JavaScript. O ES6 adiciona algumas features interessantes ao JavaScript, como: Definição de Classe, Argumentos padrões em funções, Constantes, etc. (Você pode encontrar algumas dessas features nesse [link](http://es6-features.org)).
+ECMAScript 6 is the last version of the ECMAScript standard, this standard serves as the basis for the implementation of JavaScript. ES6 adds some interesting features to JavaScript, such as: Class Definition, Default Arguments in Functions, Constants, etc. (You can find some of these features on this [link](http://es6-features.org)).
 
-Apesar de ter sido finalizado em 2015, [alguns browsers ainda apresentam incompatibilidade](https://kangax.github.io/compat-table/es6/) com o novo padrão, e é justamente sobre como diminuir estes problemas que pretendo falar nesse post.
+Although it was finalized in 2015, some browsers still [show incompatibility with the new standard](https://kangax.github.io/compat-table/es6/), and it is precisely on how to lessen these problems that I intend to speak in this post.
 
-Atualmente, existe um tipo de compilador chamado transpilador(transpiler), que basicamente pega um código-fonte de em uma linguagem de programação e traduz para outra. Seguindo este conceito surgiram algumas libs que traduzem o código JavaScript no padrão ES6 para o ES5, diminuindo problemas de incompatibilidade e permitindo que você possa utilizar os principais recursos do novo padrão. As libs que testei foram a [Traceur Compiler](https://github.com/google/traceur-compiler), da google, e a [Babel](https://babeljs.io/).
+Currently, there is a type of compiler called transpiler, which basically takes a source code from one programming language and translates to another. Following this concept came some libs that translate the JavaScript code in ES6 standard for ES5, lowering incompatibility issues, and allowing you to use the key features of the new standard. The libs I tested were google [Traceur Compiler](https://github.com/google/traceur-compiler) and [Babel](https://babeljs.io/).
 
 #### Traceur Compiler
 
-Você pode utilizar o Traceur Compiler de 2 formas:
+You can use the Traceur Compiler in 2 ways:
 
-- Incluindo a lib direto na página e o código será automaticamente transpilado para o ES5 ao carregar a página. Para utilizar dessa forma basta incluir os arquivos assim:
+- Including the direct lib on the page and the code will be automatically transpiled to ES5 when loading the page. To use this way, just include the files like this:
 
 ```html
 <script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
 <script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>
 <script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
 ```
-   O arquivo traceur.js é o compilador (transpilador), o BrowserSystem.js e bootstrap.js são responsáveis por aplicar o compilador ao JavaScript da página.
+   The traceur.js file is the compiler (transpiler), BrowserSystem.js, and bootstrap.js are responsible for applying the compiler to the page's JavaScript.
    
-- Compilando o código em ES6 utilizando o [Node](http://nodejs.org/):
-   * Após clonar o repositório execute o comando  para compilar o seu arquivo JS:
+- Compiling the code in ES6 using [Node](http://nodejs.org/):
+    * After cloning the repository run the command to compile your JS file:
       
     `./traceur --out out/meu_arquivo.js --script meu_arquivo.js`
     
-A pasta out é onde ficará o arquivo transpilado de ES6 para ES5.
+The out folder is where the transpiled file from ES6 to ES5 will be.
 
-Um código como:
+A code like:
 
 ```javascript
 const a = "1";
@@ -43,7 +43,7 @@ function foo(bar=true){
 }
 ```
 
-Ficaria assim compilado:
+It would be compiled as follows:
 
 ```javascript
 $traceurRuntime.ModuleStore.getAnonymousModule(function() {
@@ -56,26 +56,26 @@ $traceurRuntime.ModuleStore.getAnonymousModule(function() {
   return {};
 });
 ```
-Você também pode testar em tempo real a compilação do código neste [link](http://google.github.io/traceur-compiler/demo/repl.html).
+You can also test code compilation in real time on this [link](http://google.github.io/traceur-compiler/demo/repl.html).
 
 
 #### Babel JS
 
-O Babel também é muito fácil de usar e possui várias empresas famosas que o utilizam, alguma destas são: Facebook, Netflix, Yahoo, Paypal, Spotify e [várias outras](https://babeljs.io/users/).
+Babel is also very easy to use and has several famous companies that use it, some of them are: Facebook, Netflix, Yahoo, Paypal, Spotify and [several others](https://babeljs.io/users/).
 
-Para instalar o Babel, você irá precisar ter o Node.js e npm instalado. A instalação do Babel pode ser feita com essa comando:
+To install Babel, you will need to have Node.js and npm installed. The installation of Babel can be done with this command:
 
 `npm install -g babel`
 
-Agora você pode executar o Babel assim:
+Now you can run Babel like this:
 
 `babel script.js --out-file script-compiled.js`
 
-Sendo que o script.js é o arquivo com o padrão ES6 e o script-compiled.js será o arquivo transpilado para o ES5.
+Where script.js is the file with the ES6 standard and script-compiled.js will be the transpiled file for ES5.
 
-Uma vantagem do Babel é a legibilidade do código gerado. Por exemplo:
+One advantage of Babel is the readability of the generated code. For example:
 
-- Script original
+- Original script
 
 ```javascript
 class Poligono {
@@ -86,7 +86,7 @@ class Poligono {
 }
 ```
 
-- Script compilado
+- Compiled script
 
 ```javascript
 "use strict";
@@ -101,10 +101,10 @@ var Poligono = function Poligono(altura, largura) {
 };
 ```
 
-Tente você mesmo através do transpilador online neste [link](http://babeljs.io/repl/)
+Try it yourself through the online transpiler on this [link](http://babeljs.io/repl/)
 
-### Conclusão
+### Conclusion
 
-Não é necessário esperar que todos os browsers sejam compatíveis com o ES6 para começar a desenvolver neste padrão, os transpiladores estão aí para nos ajudar.
+It is not necessary to wait for all browsers to be compatible with the ES6 to start developing in this standard, the transpilators are there to help us.
 
-Se você conhece outra ferramenta ou lib do tipo, compartilhe nos comentários abaixo.
+If you know of another tool or lib of type, share in the comments below.

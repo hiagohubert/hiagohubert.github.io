@@ -2,20 +2,20 @@
 layout: post
 title:  "Write up SHX 3 (PHP Security) - Omni Corp"
 date:   2017-02-15
-lang: pt
+lang: en
 ref: php-write-up-shx-3-1
 comments: true
 ---
 
-Para quem não está familiarizado com competições de segurança da informação no estilo CTF (Capture The Flag), um "Write Up" é uma descrição de uma solução para um desafio de um CTF especifico. Caso nunca tenha ouvido falar de CTF, você pode começar por esse [link](https://ctf-br.org/sobre/).
+For those unfamiliar with information security competitions in the CTF (Capture The Flag) style, a "Write Up" is a description of a solution to a specific CTF challenge. If you have never heard of CTF, you can start with this [link](https://ctf-br.org/sobre/).
 
-Este Write Up é de um challenge do [Shellter Labs](https://shellterlabs.com/) que é uma rede social focada no aprendizado de segurança da informação e que periodicamente lança um conjunto de challenges com um assunto especifico, e nesta semana lançaram com o assunto de Segurança com PHP.
+This Write Up is a challenge from [Shellter Labs](https://shellterlabs.com/) which is a social network focused on learning information security and periodically launches a set of challenges with a specific subject, and this week Launched with the subject of Security with PHP.
 
-Descrição do problema:
+Problem description:
 
-> "We were able to find a piece of this website code on the internet. We hope it help us to find a vulnerability that show us the secret code." (Fomos capazes de encontrar um pedaço deste código do site na internet. Esperamos que nos ajude a encontrar uma vulnerabilidade que nos mostre o código secreto)
+> "We were able to find a piece of this website code on the internet. We hope it help us to find a vulnerability that show us the secret code."
 
-Junto ao problema, é fornecido o seguinte código-fonte:
+Beside the problem, the following source code is provided:
 
 ```php
 <?php
@@ -147,17 +147,16 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 </html>
 ```
 
-Também é oferecido um link para o site a ser explorado, e ao acessar o site, vemos isto:
-
+It also offer a link to the site to be explored, and when access the site, we see this:
 
 <figure>
 	<img src="{{ '/assets/img/omni_corp_screenshot1.png' | prepend: site.baseurl }}" alt=""> 
-	<figcaption>Fig1. - Pagina inicial</figcaption>
+	<figcaption>Fig1. - Home page</figcaption>
 </figure>
 
-### Solução
+### Solution
 
-Como nos CTFs o que interessa são as Flags, é possível ver no código fornecido que a parte que nos interessa para ser executada é essa:
+Since in CTFs what matters are Flags, you can see in the code provided that the part that interests us to be executed is this:
 
 ```php
   <?php
@@ -173,7 +172,7 @@ Como nos CTFs o que interessa são as Flags, é possível ver no código forneci
 		}
 ```
 
-Tendo em mente que o código do formulário de login é este:
+Keeping in mind that the code of the login form is this:
 
 ```html
 <form method="post" action="login.php" name="login">
@@ -188,28 +187,28 @@ Tendo em mente que o código do formulário de login é este:
 </form>
 ```
 
-É natural que a primeira tentativa seja alterar o value do input "id" para 0, visto que é essa a comparação feita no código php, entretanto, ao fazer isto é retornado o seguinte erro:
+It is natural that the first attempt is to change the value of the input "id" to 0, since this is the comparison made in the php code, however, doing so returns the following error:
 
 <figure>
 	<img src="{{ '/assets/img/omni_corp_screenshot2.png' | prepend: site.baseurl }}" alt=""> 
 	<figcaption>Fig2. - id = 0 </figcaption>
 </figure>
 
-Então, percebi que a vulnerabilidade trata-se de um erro comum cometido por programadores em linguagens de tipagem dinâmica como o PHP, que é não usar o "===" que além de comparar o conteúdo da variavel, compara o tipo. Para resolver explorar a falha, alterei o value do campo id para "false":
+So I realized that the vulnerability is a common mistake made by programmers in dynamic typing languages such as PHP, which is not use the "===" which in addition to comparing the contents of the variable, compares the type. To exploit the vulnerability, I changed the value of the id field to "false":
 
 <figure>
 	<img src="{{ '/assets/img/omni_corp_screenshot3.png' | prepend: site.baseurl }}" alt=""> 
-	<figcaption>Fig3. - Alterando value de campo id através de "Ferramentas de desenvolvedor" do Google Chrome </figcaption>
+	<figcaption>Fig3. - Changing id field value through Google Chrome's Developer Tools </figcaption>
 </figure>
 
 
-Após submeter o formulário, conseguimos a flag:
+After submitting the form, we got the flag:
 
 <figure>
 	<img src="{{ '/assets/img/omni_corp_screenshot4.png' | prepend: site.baseurl }}" alt=""> 
 	<figcaption>Fig3. - Flag: shellter{lookout_for_php_typ3_juggling!} </figcaption>
 </figure>
 
-Em PHP, as comparações `false == 0` e `true == 1` retornam `true`, então é preciso muito cuidado ao desenvolver.
+In PHP, comparisons `false == 0` and` true == 1` return `true`, so you have to be very careful when developing.
 
-Caso tenha alguma dúvida ou algo a dizer, comente abaixo!
+If you have any questions or comments, please comment below!

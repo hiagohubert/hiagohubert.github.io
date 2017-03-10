@@ -132,7 +132,7 @@ socket_close($server);
 
 Neste caso, a criação do socket será igual ao do cliente TCP, e a seguir existem duas funções que não foram utilizadas nos últimos exemplos, a primeira é [socket_bind](http://php.net/socket_bind) que é utilizada para dizer o endereço de IP e a porta que queremos que o servidor escute, em seguida tem a [socket_listen](http://php.net/socket_listen) que faz o servidor iniciar a escuta.
 
-A partir da criação do socket e inicialização da escuta do servidor, iniciamos um loop para mantê-lo em execução, e quando o cliente se conecta, colocamos o socket na variável *$client* através da função [socket_accept](http://php.net/socket_accept) e colocamos o endereço e a porta nas variáveis $address e $port passando estas por referência na função [socket_getpeername](http://php.net/socket_getpeername), para ler os dados enviados pelo cliente utilizamos a função [socket_read](http://php.net/socket_read) e para enviar dados para o cliente utilizamos.
+A partir da criação do socket e inicialização da escuta do servidor, iniciamos um loop para mantê-lo em execução, e quando o cliente se conecta, colocamos o socket na variável *$client* através da função [socket_accept](http://php.net/socket_accept) e colocamos o endereço e a porta nas variáveis $address e $port passando estas por referência na função [socket_getpeername](http://php.net/socket_getpeername), para ler os dados enviados pelo cliente utilizamos a função [socket_read](http://php.net/socket_read) e para enviar dados para o cliente utilizamos [socket_write](http://php.net/socket_write). 
 
 Para testar este script basta executá-lo e em outra aba do terminal executar o cliente TCP, mas alterando antes as variáveis para `$target_host = "127.0.0.1"` e `$target_port = 9999` .
 
