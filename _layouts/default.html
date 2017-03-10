@@ -11,8 +11,7 @@
    {% include header.html %}
 
    <div class="content">
-   	  <div class="wrapper" style="text-align: center; line-height: 2em">
-			   Languages: 
+   	  <div class="wrapper" style="text-align: center; line-height: 2em"> 
 			  {% assign pages=site.pages | where:"ref", page.ref | sort: 'lang' %}
 			  {% for page in pages %} 
 			  {% unless page.url contains 'page' %}
