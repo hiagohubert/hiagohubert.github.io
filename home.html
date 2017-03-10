@@ -1,15 +1,16 @@
 ---
 layout: default
 title: Hiago Hubert Blog
-lang: pt
+lang: en
 ref: home
 ---
 
 <div class="home" id="home">
 
-  <h1 class="pageTitle">Posts Recentes</h1>
+  <h1 class="pageTitle">Recent posts</h1>
   <ul class="posts noList">
-  {% assign posts=paginator.posts | where:"lang", page.lang %}
+  {% assign posts=site.posts | where:"lang", page.lang %}
+  {{paginator.posts}}
     {% for post in posts %}
       <li>
         <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>

@@ -11,6 +11,34 @@
    {% include header.html %}
 
    <div class="content">
+   	  <div class="wrapper" style="text-align: center; line-height: 2em">
+			   Languages: 
+			  {% assign pages=site.pages | where:"ref", page.ref | sort: 'lang' %}
+			  {% for page in pages %} 
+			  {% unless page.url contains 'page' %}
+			  	|<a href="{{ page.url | prepend: site.baseurl }}" class="{{ page.lang }}">
+			  	{% if page.lang == 'en' %}
+			  	English Version
+			  	{%endif%}
+			  	{% if page.lang == 'pt' %}
+			  	Versão portuguesa 
+			  	{%endif%}
+			  	</a> |
+			  {% endunless %}
+			  {% endfor %}
+
+			  {% assign posts=site.posts | where:"ref", page.ref | sort: 'lang' %}
+			  {% for post in posts %}
+			    | <a href="{{ post.url | prepend: site.baseurl }}" class="{{ post.lang }}">
+			    {% if post.lang == 'en' %}
+			  	English Version
+			  	{%endif%}
+			  	{% if post.lang == 'pt' %}
+			  	Versão portuguesa 
+			  	{%endif%}
+			    </a> |
+			  {% endfor %}
+	  </div>
       <div class="container">
          {{ content }}
       </div>

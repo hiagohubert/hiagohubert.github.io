@@ -2,6 +2,8 @@
 layout: post
 title:  "Write up SHX 3 (PHP Security) - Quantum Photos"
 date:   2017-02-16
+lang: pt
+ref: php-write-up-shx-3-2
 comments: true
 ---
 

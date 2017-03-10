@@ -2,6 +2,8 @@
 layout: post
 title:  "ECMAScript 6 e incompatibilidades"
 date:   2017-02-13
+lang: pt
+ref: ecmascript6
 comments: true
 ---
 

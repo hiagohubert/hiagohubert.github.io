@@ -2,6 +2,8 @@
 layout: post
 title:  "Write up SHX 3 (PHP Security) - Hello Photo"
 date:   2017-02-20
+lang: pt
+ref: php-write-up-shx-3-3
 comments: true
 ---
 
@@ -59,14 +61,14 @@ Após isto, basta salvar e modificar a extensão da imagem para *.php* e fazer o
 </figure>
 
 
-Feito isto, temos uma shell pronta para uso, agora é só procurar a flag pelo sistema de arquivo do servidor.
+Feito isso, temos uma shell pronta para uso, agora é só procurar a flag pelo sistema de arquivo do servidor.
 
 <figure>
 	<img src="{{ '/assets/img/hello_photo_screenshot7.png' | prepend: site.baseurl }}" alt=""> 
 	<figcaption>Fig7. - Flag: shellter{b3_c4r3ful_w1th_upl04d5}</figcaption>
 </figure>
 
-Para quem tiver curiozidade, baixei o arquivo *uploader.php* e este é o código inseguro:
+Para quem tiver curiosidade, baixei o arquivo *uploader.php* e este é o código inseguro:
 
 ```php
 
