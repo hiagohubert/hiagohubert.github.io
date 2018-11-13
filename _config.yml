@@ -1,10 +1,10 @@
-title: Hiago Hubert Blog
+title: Sylar Labs
 description: Blog de desenvolvimento de software e segurança da informação
 
 url: https://hiagohubert.github.io/
 baseurl: ""
 paginate_path: "blog/page:num/"
-permalink: blog/:title/
+permalink: blog/:title/ 
 
 markdown: kramdown
 highlighter: rouge
