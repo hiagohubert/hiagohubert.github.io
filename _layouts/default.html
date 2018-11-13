@@ -17,10 +17,10 @@
 			  {% unless page.url contains 'page' %}
 			  	|<a href="{{ page.url | prepend: site.baseurl }}" class="{{ page.lang }}">
 			  	{% if page.lang == 'en' %}
-			  	English Version
+			  	English
 			  	{%endif%}
 			  	{% if page.lang == 'pt' %}
-			  	Versão portuguesa 
+			  	Português 
 			  	{%endif%}
 			  	</a> |
 			  {% endunless %}
@@ -30,10 +30,10 @@
 			  {% for post in posts %}
 			    | <a href="{{ post.url | prepend: site.baseurl }}" class="{{ post.lang }}">
 			    {% if post.lang == 'en' %}
-			  	English Version
+			  	English
 			  	{%endif%}
 			  	{% if post.lang == 'pt' %}
-			  	Versão portuguesa 
+			  	Português 
 			  	{%endif%}
 			    </a> |
 			  {% endfor %}
